@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 原生的websocket无法判断ws.onmessage接收到的数据类型。所以用第三方库来解决，如socket.io，服务器、客户端都要用 -->
+
+    <script type="module">
+        import { io } from "https://cdn.socket.io/4.8.1/socket.io.esm.min.js";
+        const socket = io('ws://localhost:8888')
+
+        socket.on("$updateUser", (users) => {
+            console.log('事件 $updateUser 触发', users);
+        })
+
+        socket.on('$name', (name) => {
+            console.log('事件 $name 触发', name);
+        })
+    </script>
+</body>
+
+</html>
