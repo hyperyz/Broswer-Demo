@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面1发送</title>
+</head>
+
+<body>
+    <button>点击修改localStorage，触发页面2的storage事件</button>
+    <script>
+        localStorage.name = "yz"
+        localStorage.age = 25
+        document.querySelector('button').addEventListener('click', function () {
+            localStorage.age = Math.random() * 10
+        })
+    </script>
+</body>
+
+</html>

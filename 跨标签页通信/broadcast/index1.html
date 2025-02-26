@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index1用于发送</title>
+</head>
+
+<body>
+    <input type="text">
+    <button>发送</button>
+
+    <script>
+        const ipt = document.querySelector('input');
+        const btn = document.querySelector('button');
+
+        // 广播频道
+        const broadcastChannel = new BroadcastChannel('load');
+
+        btn.addEventListener('click', function () {
+            broadcastChannel.postMessage({
+                value: ipt.value
+            })
+        })
+    </script>
+</body>
+
+</html>
