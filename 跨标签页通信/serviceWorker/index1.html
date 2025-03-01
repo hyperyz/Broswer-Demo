@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面一</title>
+</head>
+
+<body>
+    <input type="text">
+    <button>发送数据</button>
+    <script>
+        // 注册serviceWorker
+        navigator.serviceWorker.register('sw.js').then(function (registration) {
+            console.log('serviceWorker 注册成功')
+        })
+        const btn = document.querySelector('button')
+        const content = document.querySelector('input')
+        btn.addEventListener('click', function () {
+            navigator.serviceWorker.controller.postMessage({
+                value: content.value
+            })
+        })
+    </script>
+</body>
+
+</html>
